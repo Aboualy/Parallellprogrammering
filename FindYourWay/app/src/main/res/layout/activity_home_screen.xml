@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layMainHomeScreen"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".com.startwork.streetguide.HomeScreenActivity"
+    android:background="@color/home_color"
+    android:orientation="vertical"
+
+
+    >
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/swipe"
+        >
+        <LinearLayout
+            android:id="@+id/mainContentHolder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
+            android:orientation="vertical" >
+
+            <RadioGroup
+                android:id="@+id/grpTripType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="3dp"
+                android:paddingLeft="2dp"
+                android:paddingRight="2dp"
+                android:paddingBottom="3dp"
+                android:onClick="onTripTypeChanged"
+
+                >
+
+                <RadioButton
+                    android:id="@+id/rbRoundTrip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:drawableRight="@drawable/ic_round_trip"
+                    android:drawableTint="@color/secondry_color"
+                    android:drawablePadding="2dp"
+                    android:hint="@string/strRoundTripHint"
+                    android:buttonTint="@color/secondry_color"
+                    android:textColorHint="@android:color/white"
+                    style="@style/Base.Widget.AppCompat.Button.Borderless" />
+
+                <RadioButton
+                    android:id="@+id/rbAtoBTrip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableRight="@drawable/ic_single_trip"
+                    android:drawablePadding="2dp"
+                    android:drawableTint="@color/secondry_color"
+                    android:hint="@string/strP2PHint"
+                    android:layout_gravity="right"
+                    android:buttonTint="@color/secondry_color"
+                    android:textColorHint="@android:color/white"
+                    style="@style/Base.Widget.AppCompat.Button.Borderless" />
+
+            </RadioGroup>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:layout_marginBottom="1dp"
+                style="@style/Base.Widget.AppCompat.ButtonBar" >
+
+                <TextView
+                    android:id="@+id/tvCommuteModeLabel"
+                    android:text="@string/strWayForGo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:layout_alignParentLeft="true"
+                    android:gravity="left"
+                    style="@style/Base.Widget.AppCompat.Button.Borderless" />
+
+                <Spinner
+                    android:id="@+id/commuteModeDropdownList"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
+                    android:spinnerMode="dropdown"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginRight="4dp"
+                    android:gravity="right"
+                    android:layout_toRightOf="@+id/tvCommuteModeLabel"
+                    android:layout_alignParentRight="true" />
+
+            </RelativeLayout>
+
+            <!-- Layout that holds the starting point and a Places to visit options -->
+            <RelativeLayout
+                android:id="@+id/choosePlacesPanel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="6dp"
+                android:layout_marginBottom="5dp" >
+
+                <RelativeLayout
+                    android:id="@+id/curLocationPanel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:id="@+id/lblDeparturePoint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/lblStartPoint"
+                        android:singleLine="true"
+                        android:textStyle="bold"
+                        android:typeface="normal"
+                        android:gravity="left"
+                        android:layout_alignParentLeft="true"
+                        style="@style/Base.Widget.AppCompat.Button.Borderless" />
+
+
+                </RelativeLayout>
+
+                <com.startwork.streetguide.AutoSearchView
+                    android:id="@+id/atvStartingPoint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="3dp"
+                    android:paddingBottom="3dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginRight="50dp"
+                    android:layout_below="@+id/curLocationPanel"
+                    android:hint="@string/strChooseStartingPointHint"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/auto_text_view"
+                    android:textColor="@android:color/white"
+
+                    />
+
+                <RelativeLayout
+                    android:id="@+id/places2VisitButtonLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/atvStartingPoint" >
+
+                    <TextView
+                        android:id="@+id/lblPlacesToVisit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/lblEndPoints"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="6dp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignBottom="@+id/btnAddPlaceToVisit"
+                        android:layout_alignTop="@+id/btnAddPlaceToVisit"
+                        style="@style/Base.Widget.AppCompat.Button.Borderless" />
+
+                    <ImageButton
+                        android:id="@+id/btnAddPlaceToVisit"
+                        android:text="@string/lblPlusButton"
+                        android:contentDescription="@string/lblDescAddLocation"
+                        android:src="@drawable/ic_plus"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginRight="9dp"
+                        android:background="@drawable/roundedbutton"
+                        style="?android:attr/buttonStyleSmall"
+                        android:layout_alignParentRight="true" />
+
+                </RelativeLayout>
+
+                <com.startwork.streetguide.AutoSearchView
+                    android:id="@+id/atvRequiredDestination"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/lblHintEndPoint"
+                    android:textColor="@android:color/white"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="3dp"
+                    android:paddingBottom="3dp"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginRight="50dp"
+                    android:layout_below="@+id/places2VisitButtonLayout"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/auto_text_view"
+                    />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="4"
+                    android:isScrollContainer="false"
+                    >
+
+                    <LinearLayout
+                        android:id="@+id/addedLocationsContainerLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="4dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginBottom="5dp"
+                        android:orientation="vertical"
+
+                        ></LinearLayout>
+
+
+                </ScrollView>
+
+
+
+                <LinearLayout
+                    android:id="@+id/homeScreenBottomBarLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    >
+
+                    <Button
+                        android:id="@+id/btn_go"
+                        android:text="@string/lblGo"
+                        android:padding="5dp"
+                        android:textSize="20sp"
+                        android:textColor="@android:color/white"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/go_clearbtn"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+
+                        />
+
+
+                    <Button
+                        android:id="@+id/btn_clear"
+                        android:text="@string/lblClear"
+                        android:padding="5dp"
+                        android:textSize="18sp"
+                        android:textColor="@android:color/white"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/go_clearbtn"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="5dp"
+                        />
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+
+</LinearLayout>

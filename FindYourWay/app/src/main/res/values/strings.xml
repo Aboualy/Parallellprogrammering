@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name">Find Your Way</string>
+    <string name="google_api_key">AIzaSyDdqvHruQsCzxP7lCC8fupLWW2Fom8wyf4</string>
+
+    <!-- Strings related to Home screen Main content -->
+    <string name="lblStartPoint">Starting Point</string>
+    <string name="strRoundTripHint">Round Trip</string>
+    <string name="strP2PHint">Straight Trip</string>
+    <string name="lblEndPoints">Ending Points</string>
+    <string name="lblPlusButton">+</string>
+    <string name="lblMinusButton">-</string>
+    <string name="strChooseStartingPointHint">Choose starting point</string>
+    <string name="lblHintSearchPlace">Search Location</string>
+    <string name="lblHintEndPoint">Ending Point</string>
+    <string name="lblDescRemoveLocation">Remove Location</string>
+    <string name="lblDescAddLocation">Add Location</string>
+    <string name="lblClear">Clear</string>
+    <string name="lblGo">Go</string>
+    <string name="strWayForGo">Suitable Way</string>
+    <string-array name="arrCommuteOptions">
+        <item>Walking</item>
+        <item>Biking</item>
+        <item>Driving</item>
+        <item>Public Transit</item>
+    </string-array>
+
+    <string name="strSaveRouteLabel">Save Route</string>
+    <string name="saveButtonLabel">saveButtonLabel</string>
+    <string name="strDescByWalk">By Walk</string>
+    <string name="strDescByPublicTransport">By Public Transport</string>
+    <string name="strDescByCar">By Car</string>
+    <string name="strDescByBike">By Bike</string>
+    <string name="strHintRouteName">Unique Route Name</string>
+
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="strCurrentLocationLabel">Current Location</string>
+    <string name="strNavigationBtnLabel">Navigation</string>
+    <string name="strStreetviewBtnLabel">Streetview</string>
+    <string name="strBtnShowRouteInfoLabel">Route Info</string>
+    <string name="strCurrentLocationConstant">CURRENT_LOCATION</string>
+    <string name="title_activity_map">Map</string>
+
+</resources>
